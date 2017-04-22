@@ -1,0 +1,748 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="command," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="作用find命令算是linux系统管理员必备的技能,它能通过文件名查找,时间查找,权限查找,用户查找,大小查找,文件类型查找等等,还支持正则表达示.查找之后还能执行操作,功能强大.本文将从这些属性来一一介绍,欢迎阅读. 语法1234find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]这是文档中的语">
+<meta name="keywords" content="command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="find命令详解">
+<meta property="og:url" content="http://yoursite.com/2017/01/24/find命令详解/index.html">
+<meta property="og:site_name" content="我希望世界和平">
+<meta property="og:description" content="作用find命令算是linux系统管理员必备的技能,它能通过文件名查找,时间查找,权限查找,用户查找,大小查找,文件类型查找等等,还支持正则表达示.查找之后还能执行操作,功能强大.本文将从这些属性来一一介绍,欢迎阅读. 语法1234find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]这是文档中的语">
+<meta property="og:updated_time" content="2017-04-22T07:47:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="find命令详解">
+<meta name="twitter:description" content="作用find命令算是linux系统管理员必备的技能,它能通过文件名查找,时间查找,权限查找,用户查找,大小查找,文件类型查找等等,还支持正则表达示.查找之后还能执行操作,功能强大.本文将从这些属性来一一介绍,欢迎阅读. 语法1234find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]这是文档中的语">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/24/find命令详解/"/>
+
+
+
+
+
+  <title> find命令详解 | 我希望世界和平 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我希望世界和平</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hallo world</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/24/find命令详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aquarius">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/boat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我希望世界和平">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                find命令详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-24T13:09:59+08:00">
+                2017-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>find命令算是linux系统管理员必备的技能,它能通过文件名查找,时间查找,权限查找,用户查找,大小查找,文件类型查找等等,还支持正则表达示.查找之后还能执行操作,功能强大.本文将从这些属性来一一介绍,欢迎阅读.</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]</div><div class="line">这是文档中的语法.</div><div class="line">大多数被简化成下面</div><div class="line">find [path] [express] [actions]</div></pre></td></tr></table></figure>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">H 只遵循指定符号链接.例: `find -H uname /bin -type f -print` 只会查找uname符号链接.</div><div class="line">L 遵循所有符号链接. 例: `find -L /bin -type f -print` 会查找所有文件,包括符号链接.</div><div class="line">P 默认选项,不遵循符号链接.也就是不查找符号链接.例: `find [-P] /bin -type f -print`</div><div class="line">不会查找符号链接.&quot;-P&quot;可写可不写.</div><div class="line">H L P 三个同时使用时,只有最后一个生效.</div><div class="line">D 调试选项.此选项也是非常有用,有兴趣的可以查看文档,这里不作解释.</div><div class="line">-Olevel 启用查询优化。查找程序重新排序测试以加速执行，同时保持整体效果.</div><div class="line">很少用,有兴趣的可以查看文档,这里不作解释</div></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>如果没有指定目录,就从当前目录开始查找.</li>
+<li>find命令分左右执行,左边为tests(条件测试),右边为actions(动作).</li>
+<li>find命令中,有逻辑或与非,默认是与操作,就是and.</li>
+<li>find命令中,默认mindepth(最小深度)为1, 但是不要指定为负数,表示处理所有文件,maxdepth表示最大深度,0表示用于测试,可以指定正整数.</li>
+</ol>
+<h1 id="逻辑操作"><a href="#逻辑操作" class="headerlink" title="逻辑操作"></a>逻辑操作</h1><h1 id="find命令中是有逻辑操作，分别是-o-a"><a href="#find命令中是有逻辑操作，分别是-o-a" class="headerlink" title="find命令中是有逻辑操作，分别是-o,!,-a."></a>find命令中是有逻辑操作，分别是-o,!,-a.</h1><h2 id="a-and-为默认-为逻辑与操作-所有条件同时满足-不写也可以-看例子"><a href="#a-and-为默认-为逻辑与操作-所有条件同时满足-不写也可以-看例子" class="headerlink" title="-a(and)为默认,为逻辑与操作,所有条件同时满足.不写也可以.看例子:"></a>-a(and)为默认,为逻辑与操作,所有条件同时满足.不写也可以.看例子:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">find . -name &quot;*log&quot; -ctime -3 -print</div><div class="line">该语句表示查找当前目录下创建时间小于3天的并且以log结尾的文件,等同</div><div class="line">find . -name &quot;*log&quot; -a -ctime -3 -print</div><div class="line">find . -name &quot;*log&quot; -and -ctime -3 -print</div></pre></td></tr></table></figure>
+<h2 id="o-or-为逻辑或操作-只满足一个条件即可-看例子："><a href="#o-or-为逻辑或操作-只满足一个条件即可-看例子：" class="headerlink" title="-o(or)为逻辑或操作,只满足一个条件即可.看例子："></a>-o(or)为逻辑或操作,只满足一个条件即可.看例子：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">find . -name &quot;*log&quot; -o -ctime -3 -print</div><div class="line">该语句表示查找当前目录下以log结尾或者创建时间小于3天的文件.还可以</div><div class="line">find . -name &quot;*log&quot; -or -ctime -3 -print</div></pre></td></tr></table></figure>
+<h2 id="为逻辑非操作-叹号后的tests取反-看例子"><a href="#为逻辑非操作-叹号后的tests取反-看例子" class="headerlink" title="!为逻辑非操作,叹号后的tests取反.看例子:"></a>!为逻辑非操作,叹号后的tests取反.看例子:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">find . -name &quot;*log&quot; ! -ctime -3 -print</div><div class="line">该语句表示查找当前目录下以log结尾并且创建时间不小于3天的文件.等同于</div><div class="line">find . -name &quot;*log&quot; -not -ctime -3 -print</div></pre></td></tr></table></figure>
+<h1 id="TESTS条件测试"><a href="#TESTS条件测试" class="headerlink" title="TESTS条件测试"></a>TESTS条件测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">数值参数可以指定</div><div class="line">+n 大于n</div><div class="line">-n 小于n</div><div class="line">n 等于n</div><div class="line">-name 按名字查找</div><div class="line">-amin n 最近n分钟被访问文件</div><div class="line">-cmin n 最近n分钟创建的文件</div><div class="line">-mmin n 最近n分钟修改折文件</div><div class="line">-atime n 最后n*24访问的文件</div><div class="line">-ctime n 最后n*24创建的文件</div><div class="line">-mtime n 最后n*24修改的文件</div><div class="line">-userd n 最后n天更新的文件</div><div class="line">-anewer file 查找文件更新时间比file更新时间更新折文件</div><div class="line">-newer file 比file更新的文件</div><div class="line">-gid n 查找用户组为n的文件</div><div class="line">-group gname 查找为gname用户组的文件</div><div class="line">-uid n uid为n用户的文件</div><div class="line">-user uname uname的文件</div><div class="line">-empty 查找为空的文件或目录</div><div class="line">-links n 文件有n个链接</div><div class="line">-nogroup 没有组的文件</div><div class="line">-nouser 没有用户的文件</div><div class="line">-regex pattern 文件名匹配正则表达式模式</div><div class="line">-iregex pattern 文件名匹配正则表达式模式,但不区分大小写</div><div class="line">-path pattern 路径模式,常和-prune用于路径过虑</div><div class="line">-perm mode 权限查找</div><div class="line">-size n[cwbkmg] 根据大小查找(c 字节,w 两个字节的单词,b 512 byte的块,k 1024byte,m 1048576 byte,g 1073741824 byte)</div><div class="line">-type [bcdpflsD] 根据文件类型查找(b 块文件,c 字符文件,d 目录,p 管道,f 普通文件,l 链接文件,s socket文件,D Solaris用)</div><div class="line">-writable 文件是否可读</div><div class="line">-readable 文件是否可写</div><div class="line">-executable 文件是否可执行</div><div class="line">-samefile name 文件名相同的文件</div></pre></td></tr></table></figure>
+<h1 id="ACTIONS动作"><a href="#ACTIONS动作" class="headerlink" title="ACTIONS动作"></a>ACTIONS动作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">-delete 删除文件,成功为True.如果失败,则发出错误消息.使用-delete默认打开-depth选项.如果不指定-depth，则全部删除.**注意,-delete不能和-prune.**</div><div class="line">-exec command &#123;&#125; \; 执行命令,字符串`&#123;&#125;&apos;被当前代替在命令的参数中出现的文件名被处理，&apos;\&apos;转义&apos;;&apos;. 为每个匹配的文件运行一次指定的命令.--exec存在安全问题,建使用--execdir.</div><div class="line">-exec command &#123;&#125; + 该命令性能好于--exec command &#123;&#125; \;</div><div class="line">-execdir command &#123;&#125; \; 像-exec一样，但指定的命令从包含匹配的子目录运行,而不是从您开始的目录.</div><div class="line">-execdir command &#123;&#125; +  一样该命令性能好于--execdir command &#123;&#125; \; , 更安全.</div><div class="line">-fls file  和-ls一样,输出文件详细信息,只不过写入文件.总是创建输出文件.</div><div class="line">-fprint file 只打印匹配文件名到文件.</div><div class="line">-fprint0 file 打印匹配文件名到文件,去掉换行符.</div><div class="line">-fprintf file format</div><div class="line">-ls 显示匹配文件详细信息.就像ls -dils</div><div class="line">-ok command ; 执行命令,但总是先询问,</div><div class="line">-okdir command ;  像-execdir一样，但是以-ok相同的方式询问用户. 如果用户不同意，只要返回</div><div class="line">-print 打印完整的文件名.</div><div class="line">-print0 打印完整的文件名,但后面跟一个空字符.此选项对应于xargs -0.</div><div class="line">-printf format 在标准输出上打印格式，解释`\&apos;转义和&apos;％&apos;指令.</div><div class="line">-prune true 常和-path用于过虑目录.</div><div class="line">-quit 立即退出,例如找到了某个文件,不想继续查找,可以使用该选项.</div></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="查找当前目录及子目录"><a href="#查找当前目录及子目录" class="headerlink" title="查找当前目录及子目录"></a>查找当前目录及子目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find</div><div class="line"># 就行了</div><div class="line">.</div><div class="line">./fstab</div><div class="line">./crypttab</div><div class="line">./mtab</div><div class="line">./resolv.conf</div><div class="line">./pki</div><div class="line">./pki/rpm-gpg</div><div class="line">./pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</div><div class="line">./pki/rpm-gpg/RPM-GPG-KEY-CentOS-Debug-7</div><div class="line">./pki/rpm-gpg/RPM-GPG-KEY-CentOS-Testing-7</div><div class="line">./pki/tls</div><div class="line">./pki/tls/certs</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找一个passwd的文件"><a href="#查找一个passwd的文件" class="headerlink" title="查找一个passwd的文件"></a>查找一个passwd的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find . -name &apos;passwd&apos;</div><div class="line">./passwd</div><div class="line">./pam.d/passwd</div></pre></td></tr></table></figure>
+<h2 id="查找时忽略大小写-不写目录就是当前目录"><a href="#查找时忽略大小写-不写目录就是当前目录" class="headerlink" title="查找时忽略大小写,不写目录就是当前目录"></a>查找时忽略大小写,不写目录就是当前目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find  -iname &quot;PASSWD&quot;</div><div class="line">./passwd</div><div class="line">./pam.d/passwd</div></pre></td></tr></table></figure>
+<h2 id="查找”-conf”结尾的文件"><a href="#查找”-conf”结尾的文件" class="headerlink" title="查找”.conf”结尾的文件"></a>查找”.conf”结尾的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find -name &quot;*.conf&quot;</div><div class="line">./resolv.conf</div><div class="line">./pki/ca-trust/ca-legacy.conf</div><div class="line">./yum/pluginconf.d/fastestmirror.conf</div><div class="line">./yum/pluginconf.d/langpacks.conf</div><div class="line">./yum/protected.d/systemd.conf</div><div class="line">./yum/version-groups.conf</div><div class="line">./rsyslog.conf</div><div class="line">./dracut.conf</div></pre></td></tr></table></figure>
+<h2 id="查找小于10分钟前访问的文件"><a href="#查找小于10分钟前访问的文件" class="headerlink" title="查找小于10分钟前访问的文件"></a>查找小于10分钟前访问的文件</h2><p>基于分钟查找有”-amin(accessed n minutes)”,”-cmin(change n minutes) “,”mmin(modified n minutes)”，基于天查找有”-atime(accessed n<em>24 hours) “,”-ctime(change n</em>24 hours)”,”mtime(modified n*24 hours)”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find /etc/ -amin -10</div><div class="line">./passwd</div></pre></td></tr></table></figure></p>
+<h2 id="查找大于10分钟修改的文件"><a href="#查找大于10分钟修改的文件" class="headerlink" title="查找大于10分钟修改的文件"></a>查找大于10分钟修改的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find /etc/ -cmin +10</div><div class="line">/etc/vconsole.conf</div><div class="line">/etc/locale.conf</div><div class="line">/etc/hostname</div><div class="line">/etc/.updated</div><div class="line">/etc/aliases.db</div><div class="line">/etc/subgid</div><div class="line">/etc/subuid</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找7天内访问的文件"><a href="#查找7天内访问的文件" class="headerlink" title="查找7天内访问的文件"></a>查找7天内访问的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find -atime -7</div><div class="line">./nsswitch.conf.rpmnew</div><div class="line">./GeoIP.conf</div><div class="line">./GeoIP.conf.default</div><div class="line">./krb5.conf.d</div><div class="line">./screenrc</div></pre></td></tr></table></figure>
+<h2 id="查找大于7天访问的文件"><a href="#查找大于7天访问的文件" class="headerlink" title="查找大于7天访问的文件"></a>查找大于7天访问的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find -atime +7</div><div class="line">./vconsole.conf</div><div class="line">./locale.conf</div><div class="line">./hostname</div><div class="line">./.updated</div></pre></td></tr></table></figure>
+<h2 id="查找3天修改的文件"><a href="#查找3天修改的文件" class="headerlink" title="查找3天修改的文件"></a>查找3天修改的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find -mtime 3</div><div class="line">./chrony.keys</div><div class="line">./kernel</div><div class="line">./kernel/postinst.d</div><div class="line">./kernel/postinst.d/51-dracut-rescue-postinst.sh</div><div class="line">./sudo-ldap.conf</div><div class="line">./sudo.conf</div><div class="line">./sudoers</div></pre></td></tr></table></figure>
+<h2 id="查找-etc目录下用户为root和5分钟之前访问过的文件"><a href="#查找-etc目录下用户为root和5分钟之前访问过的文件" class="headerlink" title="查找/etc目录下用户为root和5分钟之前访问过的文件"></a>查找/etc目录下用户为root和5分钟之前访问过的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">find /etc/ -user root -amin +5</div><div class="line">/etc/my.cnf</div><div class="line">/etc/ssh</div><div class="line">/etc/ssh/sshd_config</div><div class="line">/etc/ssh/ssh_config</div></pre></td></tr></table></figure>
+<h2 id="查找-etc目录下用户为root和文件内容为空的文件"><a href="#查找-etc目录下用户为root和文件内容为空的文件" class="headerlink" title="查找/etc目录下用户为root和文件内容为空的文件"></a>查找/etc目录下用户为root和文件内容为空的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find /etc/ -user root -empty</div><div class="line">/etc/security/console.apps</div><div class="line">/etc/security/console.perms.d</div><div class="line">/etc/security/namespace.d</div><div class="line">/etc/security/opasswd</div><div class="line">/etc/.pwd.lock</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找-etc目录下没有组的文件但不为空的文件"><a href="#查找-etc目录下没有组的文件但不为空的文件" class="headerlink" title="查找/etc目录下没有组的文件但不为空的文件"></a>查找/etc目录下没有组的文件但不为空的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find /etc/ -nogroup ! -empty</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找文件链接大于5个的文件但文件小于1M"><a href="#查找文件链接大于5个的文件但文件小于1M" class="headerlink" title="查找文件链接大于5个的文件但文件小于1M"></a>查找文件链接大于5个的文件但文件小于1M</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find -links -5 -size -1M</div><div class="line">./selinux/targeted/contexts/netfilter_contexts</div><div class="line">./selinux/targeted/semanage.read.LOCK</div><div class="line">./selinux/targeted/semanage.trans.LOCK</div><div class="line">./security/opasswd</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找-usr-bin权限为777的文件"><a href="#查找-usr-bin权限为777的文件" class="headerlink" title="查找/usr/bin权限为777的文件"></a>查找/usr/bin权限为777的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find /usr/bin/ -perm 777</div><div class="line">/usr/bin/mailq</div><div class="line">/usr/bin/newaliases</div><div class="line">/usr/bin/rmail</div><div class="line">/usr/bin/slogin</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="查找所有suid的文件"><a href="#查找所有suid的文件" class="headerlink" title="查找所有suid的文件"></a>查找所有suid的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find / -perm -4000 -print</div><div class="line">/usr/bin/crontab</div><div class="line">/usr/bin/passwd</div><div class="line">/usr/bin/sudo</div><div class="line">/usr/sbin/unix_chkpwd</div><div class="line">/usr/sbin/usernetctl</div></pre></td></tr></table></figure>
+<h2 id="查找-etc目录下类型为文件-但权限不能为777"><a href="#查找-etc目录下类型为文件-但权限不能为777" class="headerlink" title="查找/etc目录下类型为文件,但权限不能为777"></a>查找/etc目录下类型为文件,但权限不能为777</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find . -type f ! -perm 777</div><div class="line">./aliases.db</div><div class="line">./subgid</div><div class="line">./subuid</div><div class="line">./screenrc</div></pre></td></tr></table></figure>
+<h2 id="查找所有可读的文件"><a href="#查找所有可读的文件" class="headerlink" title="查找所有可读的文件"></a>查找所有可读的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find / -perm /u=r</div><div class="line">/home/beatrix/.bash_profile</div><div class="line">/home/beatrix/.bashrc</div><div class="line">/media</div><div class="line">/mnt</div><div class="line">/mnt/eeee</div></pre></td></tr></table></figure>
+<h2 id="查找所有777权限的文件-将权限改成644"><a href="#查找所有777权限的文件-将权限改成644" class="headerlink" title="查找所有777权限的文件,将权限改成644"></a>查找所有777权限的文件,将权限改成644</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find / -type f -perm 0777 -print -exec chmod 644 &#123;&#125; +</div></pre></td></tr></table></figure>
+<h2 id="删除所有mp3文件"><a href="#删除所有mp3文件" class="headerlink" title="删除所有mp3文件"></a>删除所有mp3文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># find . -type f -name &quot;*.mp3&quot; -execdir rm -f &#123;&#125; +</div></pre></td></tr></table></figure>
+<h2 id="查找大于1G的文件并删除"><a href="#查找大于1G的文件并删除" class="headerlink" title="查找大于1G的文件并删除"></a>查找大于1G的文件并删除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]#  find / -size +1G -exec rm -rf &#123;&#125; \;</div></pre></td></tr></table></figure>
+<h2 id="查找所有文件但不查找-usr和-boot目录"><a href="#查找所有文件但不查找-usr和-boot目录" class="headerlink" title="查找所有文件但不查找/usr和/boot目录"></a>查找所有文件但不查找/usr和/boot目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# find / \( -path &quot;/usr&quot; -o \</div><div class="line">-path &quot;/boot&quot; \) -prune -o -type f -print</div></pre></td></tr></table></figure>
+<h2 id="同时执行两条命令-查找suid和大于100M的文件并写入文件"><a href="#同时执行两条命令-查找suid和大于100M的文件并写入文件" class="headerlink" title="同时执行两条命令,查找suid和大于100M的文件并写入文件"></a>同时执行两条命令,查找suid和大于100M的文件并写入文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find / \( -perm -4000 -fprintf /root/suid.txt \) , \</div><div class="line">\( -size +100M -fprintf /root/big.txt \)</div></pre></td></tr></table></figure>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/command/" rel="tag"># command</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/04/selinux详解/" rel="next" title="selinux详解">
+                <i class="fa fa-chevron-left"></i> selinux详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/18/Linux的特殊权限/" rel="prev" title="Linux的特殊权限">
+                Linux的特殊权限 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/boat.jpg"
+               alt="aquarius" />
+          <p class="site-author-name" itemprop="name">aquarius</p>
+           
+              <p class="site-description motion-element" itemprop="description">分享学习的点点滴滴</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作用"><span class="nav-number">1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选项"><span class="nav-number">3.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑操作"><span class="nav-number">5.</span> <span class="nav-text">逻辑操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#find命令中是有逻辑操作，分别是-o-a"><span class="nav-number">6.</span> <span class="nav-text">find命令中是有逻辑操作，分别是-o,!,-a.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-and-为默认-为逻辑与操作-所有条件同时满足-不写也可以-看例子"><span class="nav-number">6.1.</span> <span class="nav-text">-a(and)为默认,为逻辑与操作,所有条件同时满足.不写也可以.看例子:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#o-or-为逻辑或操作-只满足一个条件即可-看例子："><span class="nav-number">6.2.</span> <span class="nav-text">-o(or)为逻辑或操作,只满足一个条件即可.看例子：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为逻辑非操作-叹号后的tests取反-看例子"><span class="nav-number">6.3.</span> <span class="nav-text">!为逻辑非操作,叹号后的tests取反.看例子:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TESTS条件测试"><span class="nav-number">7.</span> <span class="nav-text">TESTS条件测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACTIONS动作"><span class="nav-number">8.</span> <span class="nav-text">ACTIONS动作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">9.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找当前目录及子目录"><span class="nav-number">9.1.</span> <span class="nav-text">查找当前目录及子目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找一个passwd的文件"><span class="nav-number">9.2.</span> <span class="nav-text">查找一个passwd的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找时忽略大小写-不写目录就是当前目录"><span class="nav-number">9.3.</span> <span class="nav-text">查找时忽略大小写,不写目录就是当前目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找”-conf”结尾的文件"><span class="nav-number">9.4.</span> <span class="nav-text">查找”.conf”结尾的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找小于10分钟前访问的文件"><span class="nav-number">9.5.</span> <span class="nav-text">查找小于10分钟前访问的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找大于10分钟修改的文件"><span class="nav-number">9.6.</span> <span class="nav-text">查找大于10分钟修改的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找7天内访问的文件"><span class="nav-number">9.7.</span> <span class="nav-text">查找7天内访问的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找大于7天访问的文件"><span class="nav-number">9.8.</span> <span class="nav-text">查找大于7天访问的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找3天修改的文件"><span class="nav-number">9.9.</span> <span class="nav-text">查找3天修改的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找-etc目录下用户为root和5分钟之前访问过的文件"><span class="nav-number">9.10.</span> <span class="nav-text">查找/etc目录下用户为root和5分钟之前访问过的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找-etc目录下用户为root和文件内容为空的文件"><span class="nav-number">9.11.</span> <span class="nav-text">查找/etc目录下用户为root和文件内容为空的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找-etc目录下没有组的文件但不为空的文件"><span class="nav-number">9.12.</span> <span class="nav-text">查找/etc目录下没有组的文件但不为空的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找文件链接大于5个的文件但文件小于1M"><span class="nav-number">9.13.</span> <span class="nav-text">查找文件链接大于5个的文件但文件小于1M</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找-usr-bin权限为777的文件"><span class="nav-number">9.14.</span> <span class="nav-text">查找/usr/bin权限为777的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找所有suid的文件"><span class="nav-number">9.15.</span> <span class="nav-text">查找所有suid的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找-etc目录下类型为文件-但权限不能为777"><span class="nav-number">9.16.</span> <span class="nav-text">查找/etc目录下类型为文件,但权限不能为777</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找所有可读的文件"><span class="nav-number">9.17.</span> <span class="nav-text">查找所有可读的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找所有777权限的文件-将权限改成644"><span class="nav-number">9.18.</span> <span class="nav-text">查找所有777权限的文件,将权限改成644</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除所有mp3文件"><span class="nav-number">9.19.</span> <span class="nav-text">删除所有mp3文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找大于1G的文件并删除"><span class="nav-number">9.20.</span> <span class="nav-text">查找大于1G的文件并删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找所有文件但不查找-usr和-boot目录"><span class="nav-number">9.21.</span> <span class="nav-text">查找所有文件但不查找/usr和/boot目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同时执行两条命令-查找suid和大于100M的文件并写入文件"><span class="nav-number">9.22.</span> <span class="nav-text">同时执行两条命令,查找suid和大于100M的文件并写入文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aquarius</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

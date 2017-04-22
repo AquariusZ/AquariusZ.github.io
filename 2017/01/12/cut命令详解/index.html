@@ -1,0 +1,742 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="command," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="cut主要是用来分割文件中的字符串，并且根据要求进行显示的一个命令。虽然他的用法基本上都可以用其他的linux命令所代替，但是用cut会更方便一点。 语法1cut(选项)(参数) 选项12345678-b：仅显示行中指定直接范围的内容；-c：仅显示行中指定范围的字符；-d：指定字段的分隔符，默认的字段分隔符为“TAB”；-f：显示指定字段的内容；-n：与“-b”选项连用，不分割多字节字符；--co">
+<meta name="keywords" content="command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cut命令详解">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/cut命令详解/index.html">
+<meta property="og:site_name" content="我希望世界和平">
+<meta property="og:description" content="cut主要是用来分割文件中的字符串，并且根据要求进行显示的一个命令。虽然他的用法基本上都可以用其他的linux命令所代替，但是用cut会更方便一点。 语法1cut(选项)(参数) 选项12345678-b：仅显示行中指定直接范围的内容；-c：仅显示行中指定范围的字符；-d：指定字段的分隔符，默认的字段分隔符为“TAB”；-f：显示指定字段的内容；-n：与“-b”选项连用，不分割多字节字符；--co">
+<meta property="og:updated_time" content="2017-04-22T07:47:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cut命令详解">
+<meta name="twitter:description" content="cut主要是用来分割文件中的字符串，并且根据要求进行显示的一个命令。虽然他的用法基本上都可以用其他的linux命令所代替，但是用cut会更方便一点。 语法1cut(选项)(参数) 选项12345678-b：仅显示行中指定直接范围的内容；-c：仅显示行中指定范围的字符；-d：指定字段的分隔符，默认的字段分隔符为“TAB”；-f：显示指定字段的内容；-n：与“-b”选项连用，不分割多字节字符；--co">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/12/cut命令详解/"/>
+
+
+
+
+
+  <title> cut命令详解 | 我希望世界和平 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我希望世界和平</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hallo world</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/12/cut命令详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aquarius">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/boat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我希望世界和平">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                cut命令详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-12T22:12:08+08:00">
+                2017-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>cut主要是用来分割文件中的字符串，并且根据要求进行显示的一个命令。虽然他的用法基本上都可以用其他的linux命令所代替，但是用cut会更方便一点。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cut(选项)(参数)</div></pre></td></tr></table></figure>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-b：仅显示行中指定直接范围的内容；</div><div class="line">-c：仅显示行中指定范围的字符；</div><div class="line">-d：指定字段的分隔符，默认的字段分隔符为“TAB”；</div><div class="line">-f：显示指定字段的内容；</div><div class="line">-n：与“-b”选项连用，不分割多字节字符；</div><div class="line">--complement：补足被选择的字节、字符或字段；</div><div class="line">--out-delimiter=&lt;字段分隔符&gt;：指定输出内容是的字段分割符； --help：显示指令的帮助信息；</div><div class="line">--version：显示指令的版本信息。</div></pre></td></tr></table></figure>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>例如有一个学生报表信息，包含No、Name、Mark、Percent：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cat test.txt</div><div class="line">No  Name  Mark  Percent</div><div class="line">01  tom   69    91</div><div class="line">02  jack  71    87</div><div class="line">03  alex  68    98</div></pre></td></tr></table></figure>
+<p>使用 -f 选项提取指定字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -f 1 test.txt</div><div class="line">No</div><div class="line">01</div><div class="line">02</div><div class="line">03</div><div class="line"></div><div class="line">[root@localhost text]# cut -f2,3 test.txt</div><div class="line">Name Mark</div><div class="line">tom  69</div><div class="line">jack 71</div><div class="line">alex 68</div></pre></td></tr></table></figure>
+<p>–complement 选项提取指定字段之外的列（打印除了第二列之外的列）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -f2 --complement test.txt</div><div class="line">No Mark Percent</div><div class="line">01 69   91</div><div class="line">02 71   87</div><div class="line">03 68   98</div></pre></td></tr></table></figure>
+<p>使用 -d 选项指定字段分隔符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cat test2.txt</div><div class="line">No;  Name;   Mark;   Percent</div><div class="line">01;  tom;    69;     91</div><div class="line">02;  jack;   71;     87</div><div class="line">03;  alex;   68;     98</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -f2 -d&quot;;&quot; test2.txt</div><div class="line">Name</div><div class="line">tom</div><div class="line">jack</div><div class="line">alex</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="指定字段的字符或者字节范围"><a href="#指定字段的字符或者字节范围" class="headerlink" title="指定字段的字符或者字节范围"></a>指定字段的字符或者字节范围</h2><ul>
+<li>N-：从第N个字节、字符、字段到结尾；</li>
+<li>N-M：从第N个字节、字符、字段到第M个（包括M在内）字节、字符、字段；</li>
+<li>-M：从第1个字节、字符、字段到第M个（包括M在内）字节、字符、字段。</li>
+</ul>
+<h2 id="上面是记法，结合下面选项将摸个范围的字节、字符指定为字段："><a href="#上面是记法，结合下面选项将摸个范围的字节、字符指定为字段：" class="headerlink" title="上面是记法，结合下面选项将摸个范围的字节、字符指定为字段："></a>上面是记法，结合下面选项将摸个范围的字节、字符指定为字段：</h2><ul>
+<li>-b 表示字节；</li>
+<li>-c 表示字符；</li>
+<li>-f 表示定义字段。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cat test.txt</div><div class="line">abcdefghijklmnopqrstuvwxyz</div><div class="line">abcdefghijklmnopqrstuvwxyz</div><div class="line">abcdefghijklmnopqrstuvwxyz</div><div class="line">abcdefghijklmnopqrstuvwxyz</div><div class="line">abcdefghijklmnopqrstuvwxyz</div></pre></td></tr></table></figure>
+<p>打印第1个到第3个字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -c1-3 test.txt</div><div class="line">abc</div><div class="line">abc</div><div class="line">abc</div><div class="line">abc</div><div class="line">abc</div></pre></td></tr></table></figure>
+<p>打印前2个字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -c-2 test.txt</div><div class="line">ab</div><div class="line">ab</div><div class="line">ab</div><div class="line">ab</div><div class="line">ab</div></pre></td></tr></table></figure>
+<p>打印从第5个字符开始到结尾：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost text]# cut -c5- test.txt</div><div class="line">efghijklmnopqrstuvwxyz</div><div class="line">efghijklmnopqrstuvwxyz</div><div class="line">efghijklmnopqrstuvwxyz</div><div class="line">efghijklmnopqrstuvwxyz</div><div class="line">efghijklmnopqrstuvwxyz</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/command/" rel="tag"># command</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/13/shell编程-条件判断/" rel="next" title="shell编程--条件判断">
+                <i class="fa fa-chevron-left"></i> shell编程--条件判断
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/12/tar命令详解/" rel="prev" title="tar命令详解">
+                tar命令详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/boat.jpg"
+               alt="aquarius" />
+          <p class="site-author-name" itemprop="name">aquarius</p>
+           
+              <p class="site-description motion-element" itemprop="description">分享学习的点点滴滴</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选项"><span class="nav-number">2.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指定字段的字符或者字节范围"><span class="nav-number">3.1.</span> <span class="nav-text">指定字段的字符或者字节范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上面是记法，结合下面选项将摸个范围的字节、字符指定为字段："><span class="nav-number">3.2.</span> <span class="nav-text">上面是记法，结合下面选项将摸个范围的字节、字符指定为字段：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aquarius</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
