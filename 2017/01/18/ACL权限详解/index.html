@@ -7,14 +7,14 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -32,7 +32,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -66,21 +66,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="command," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="command,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="我希望世界和平" type="application/atom+xml">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -125,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/18/ACL权限详解/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/18/ACL权限详解/">
 
 
 
@@ -156,16 +158,16 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">我希望世界和平</span>
         <span class="logo-line-after"><i></i></span>
@@ -195,7 +197,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -205,7 +207,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -215,7 +217,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -225,7 +227,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -259,7 +261,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/18/ACL权限详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -307,7 +309,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -354,7 +356,7 @@
       
 
       
-        <h1 id="ACL简介"><a href="#ACL简介" class="headerlink" title="ACL简介"></a>ACL简介</h1><p>用户权限管理始终是 Unix 系统管理中最重要的环节。大家对 Linux/Unix 的 UGO 权限管理方式一定不陌生，还有最常用的 chmod 命令。为了实现一些比较复杂的权限管理，往往不得不创建很多的组，并加以详细的记录和区分（很多时候就是管理员的噩梦）。可以针对某一个用户对某一文件指定一个权限，恐怕管理员都期待的功能。比如对某一个特定的文件，用户A可以读取，用户B所在的组可以修改，惟独用户B不可以……。于是就有了IEEE POSIX 1003.1e这个ACL的标准。所谓ACL，就是Access Control List，一个文件/目录的访问控制列表，可以针对任意指定的用户/组分配RWX权限。使系统管理更加灵活。</p>
+        <h1 id="acl简介"><a href="#ACL简介" class="headerlink" title="ACL简介"></a>ACL简介</h1><p>用户权限管理始终是 Unix 系统管理中最重要的环节。大家对 Linux/Unix 的 UGO 权限管理方式一定不陌生，还有最常用的 chmod 命令。为了实现一些比较复杂的权限管理，往往不得不创建很多的组，并加以详细的记录和区分（很多时候就是管理员的噩梦）。可以针对某一个用户对某一文件指定一个权限，恐怕管理员都期待的功能。比如对某一个特定的文件，用户A可以读取，用户B所在的组可以修改，惟独用户B不可以……。于是就有了IEEE POSIX 1003.1e这个ACL的标准。所谓ACL，就是Access Control List，一个文件/目录的访问控制列表，可以针对任意指定的用户/组分配RWX权限。使系统管理更加灵活。</p>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1>
       
     </div>
@@ -457,7 +459,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -468,9 +470,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/boat.jpg"
-               alt="aquarius" />
+          <img class="site-author-image" itemprop="image" src="/images/boat.jpg" alt="aquarius">
           <p class="site-author-name" itemprop="name">aquarius</p>
            
               <p class="site-description motion-element" itemprop="description">分享学习的点点滴滴</p>
@@ -512,6 +512,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -538,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ACL简介"><span class="nav-number">1.</span> <span class="nav-text">ACL简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#acl简介"><span class="nav-number">1.</span> <span class="nav-text">ACL简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
             
 
           </div>
@@ -558,7 +565,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>

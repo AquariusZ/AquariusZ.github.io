@@ -7,14 +7,14 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -32,7 +32,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -66,21 +66,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="shell," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="shell,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="我希望世界和平" type="application/atom+xml">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -125,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/13/shell编程-参数替换/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/13/shell编程-参数替换/">
 
 
 
@@ -156,16 +158,16 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">我希望世界和平</span>
         <span class="logo-line-after"><i></i></span>
@@ -195,7 +197,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -205,7 +207,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -215,7 +217,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -225,7 +227,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -259,7 +261,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/13/shell编程-参数替换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -307,7 +309,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -356,15 +358,14 @@
       
         <h3 id="参数替换"><a href="#参数替换" class="headerlink" title="参数替换"></a>参数替换</h3><hr>
 <h2 id="parameter"><a href="#parameter" class="headerlink" title="${parameter}"></a>${parameter}</h2><p>与$parameter相同,在某些上下文中,${paramter}很少产生混淆.</p>
-<h2 id="parameter-default-parameter-default-这里有个天坑"><a href="#parameter-default-parameter-default-这里有个天坑" class="headerlink" title="${parameter-default},${parameter:-default}这里有个天坑"></a>${parameter-default},${parameter:-default}这里有个天坑</h2><p>${parameter-default} – 如果变量parameter没有声明,那么就是用默认值.<br>${parameter:-default} – 如果变量parameter没有声明,那么就是用默认值.<br><strong>在绝大多数的情况下都是相同的.只有在parameter已经声明,但值为null得时候,才会产生不一样的结构.</strong></p>
+<h2 id="parameter-defaultparameter-default这里有个天坑"><a href="#parameter-default-parameter-default-这里有个天坑" class="headerlink" title="${parameter-default},${parameter:-default}这里有个天坑"></a>${parameter-default},${parameter:-default}这里有个天坑</h2><p>${parameter-default} – 如果变量parameter没有声明,那么就是用默认值.<br>${parameter:-default} – 如果变量parameter没有声明,那么就是用默认值.<br><strong>在绝大多数的情况下都是相同的.只有在parameter已经声明,但值为null得时候,才会产生不一样的结构.</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">username0=</div><div class="line">echo &quot;username0 has been declared, but is set to null.&quot;</div><div class="line">echo &quot;username0 = $&#123;username0-`whoami`&#125;&quot;</div><div class="line"># 不会有输出. 12</div><div class="line">echo</div><div class="line">echo username1 has not been declared.</div><div class="line">echo &quot;username1 = $&#123;username1-`whoami`&#125;&quot;</div><div class="line"># 将会输出默认值. 18</div><div class="line">username2=</div><div class="line">echo &quot;username2 has been declared, but is set to null.&quot;</div><div class="line">echo &quot;username2 = $&#123;username2:-`whoami`&#125;&quot;</div><div class="line"># ^</div><div class="line"># 会输出, 因为:-会比-多一个条件测试. 24 # 可以与上边的例子比较一下. 25</div><div class="line"></div><div class="line">#</div><div class="line"></div><div class="line"># 再来一个:</div><div class="line"></div><div class="line">variable=</div><div class="line"># 变量已经被声明, 但是设为空值. 33</div><div class="line">echo &quot;$&#123;variable-0&#125;&quot; # (没有输出)</div><div class="line">echo &quot;$&#123;variable:-1&#125;&quot; # 1</div><div class="line"></div><div class="line">unset variable</div><div class="line"></div><div class="line">echo &quot;$&#123;variable-2&#125;&quot; # 2</div><div class="line">echo &quot;$&#123;variable:-3&#125;&quot; # 3</div><div class="line"></div><div class="line"># 如果脚本没有接收来自命令行的参数,那么默认参数结构将会提供一个默认值给脚本</div><div class="line"></div><div class="line">DEFAULT_FILENAME=hallo.txt</div><div class="line">filename=$&#123;1:-$DEFAULT_FILENAME&#125;</div><div class="line"># 如果没有指定值, 那么下面的代码块将会使用filename</div></pre></td></tr></table></figure>
-<h2 id="parameter-default-parameter-default"><a href="#parameter-default-parameter-default" class="headerlink" title="${parameter=default},${parameter:=default}"></a>${parameter=default},${parameter:=default}</h2><p>${parameter=default} – 如果parameter没有声明,那么就把它的值设为default.<br>${parameter:=default} – 如果parameter没有声明,那么就把它的值设为default</p>
+<h2 id="parameterdefaultparameterdefault"><a href="#parameter-default-parameter-default" class="headerlink" title="${parameter=default},${parameter:=default}"></a>${parameter=default},${parameter:=default}</h2><p>${parameter=default} – 如果parameter没有声明,那么就把它的值设为default.<br>${parameter:=default} – 如果parameter没有声明,那么就把它的值设为default</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $&#123;username=`whoami`&#125;</div><div class="line"># 变量&quot;username&quot;现在被赋值为`whoami`.</div></pre></td></tr></table></figure>
-<h2 id="parameter-alt-value-parameter-alt-value"><a href="#parameter-alt-value-parameter-alt-value" class="headerlink" title="${parameter+alt_value}, ${parameter:+alt_value}"></a>${parameter+alt_value}, ${parameter:+alt_value}</h2><p>${parameter+alt_value} – 如果变量parameter被声明了, 那么就使用alt_value, 否则就使用<br>null字符串.<br>${parameter:+alt_value} – 如果变量parameter被设置了, 那么就使用alt_value, 否则就使用<br>null字符串.</p>
+<h2 id="parameteralt_value-parameteralt_value"><a href="#parameter-alt-value-parameter-alt-value" class="headerlink" title="${parameter+alt_value}, ${parameter:+alt_value}"></a>${parameter+alt_value}, ${parameter:+alt_value}</h2><p>${parameter+alt_value} – 如果变量parameter被声明了, 那么就使用alt_value, 否则就使用<br>null字符串.<br>${parameter:+alt_value} – 如果变量parameter被设置了, 那么就使用alt_value, 否则就使用<br>null字符串.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">a=$&#123;param1+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a =</div><div class="line"></div><div class="line">param2=</div><div class="line">a=$&#123;param2+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a = xyz</div><div class="line"></div><div class="line">param3=123</div><div class="line">a=$&#123;param3+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a = xyz</div><div class="line"></div><div class="line">echo</div><div class="line">echo &quot;###### \$&#123;parameter:+alt_value&#125; ########&quot;</div><div class="line">echo</div><div class="line"></div><div class="line">a=$&#123;param4:+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a =</div><div class="line"></div><div class="line">param5=</div><div class="line">a=$&#123;param5:+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a =</div><div class="line"># 产生与a=$&#123;param5+xyz&#125;不同的结果. 26</div><div class="line">param6=123</div><div class="line">a=$&#123;param6:+xyz&#125;</div><div class="line">echo &quot;a = $a&quot; # a = xyz</div></pre></td></tr></table></figure>
-<h2 id="parameter-err-msg-parameter-err-msg"><a href="#parameter-err-msg-parameter-err-msg" class="headerlink" title="${parameter?err_msg}, ${parameter:?err_msg}"></a>${parameter?err_msg}, ${parameter:?err_msg}</h2><p>${parameter?err_msg} – 如果parameter已经被声明, 那么就使用设置的值, 否则打印err_msg<br>错误消息.<br>${parameter:?err_msg} – 如果parameter已经被设置, 那么就使用设置的值, 否则打印<br>err_msg错误消息.</p>
+<h2 id="parametererr_msg-parametererr_msg"><a href="#parameter-err-msg-parameter-err-msg" class="headerlink" title="${parameter?err_msg}, ${parameter:?err_msg}"></a>${parameter?err_msg}, ${parameter:?err_msg}</h2><p>${parameter?err_msg} – 如果parameter已经被声明, 那么就使用设置的值, 否则打印err_msg<br>错误消息.<br>${parameter:?err_msg} – 如果parameter已经被设置, 那么就使用设置的值, 否则打印<br>err_msg错误消息.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">: $&#123;HOSTNAME?&#125; $&#123;USER?&#125; $&#123;HOME?&#125; # $&#123;MAIL?&#125;</div><div class="line"></div><div class="line">echo</div><div class="line">echo &quot;Name of the machine is $HOSTNAME.&quot;</div><div class="line">echo &quot;You are $USER.&quot;</div><div class="line">echo &quot;Your home directory is $HOME.&quot;</div><div class="line">echo &quot;Your mail INBOX is located in $MAIL.&quot;</div><div class="line">echo</div><div class="line">echo &quot;If you are reading this message,&quot;</div><div class="line">echo &quot;critical environmental variables have been set.&quot;</div><div class="line">echo</div><div class="line">echo</div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -466,7 +467,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -477,9 +478,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/boat.jpg"
-               alt="aquarius" />
+          <img class="site-author-image" itemprop="image" src="/images/boat.jpg" alt="aquarius">
           <p class="site-author-name" itemprop="name">aquarius</p>
            
               <p class="site-description motion-element" itemprop="description">分享学习的点点滴滴</p>
@@ -521,6 +520,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -547,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数替换"><span class="nav-number">1.</span> <span class="nav-text">参数替换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter"><span class="nav-number"></span> <span class="nav-text">${parameter}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter-default-parameter-default-这里有个天坑"><span class="nav-number"></span> <span class="nav-text">${parameter-default},${parameter:-default}这里有个天坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter-default-parameter-default"><span class="nav-number"></span> <span class="nav-text">${parameter=default},${parameter:=default}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter-alt-value-parameter-alt-value"><span class="nav-number"></span> <span class="nav-text">${parameter+alt_value}, ${parameter:+alt_value}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter-err-msg-parameter-err-msg"><span class="nav-number"></span> <span class="nav-text">${parameter?err_msg}, ${parameter:?err_msg}</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数替换"><span class="nav-number">1.</span> <span class="nav-text">参数替换</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter"><span class="nav-number"></span> <span class="nav-text">${parameter}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameter-defaultparameter-default这里有个天坑"><span class="nav-number"></span> <span class="nav-text">${parameter-default},${parameter:-default}这里有个天坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameterdefaultparameterdefault"><span class="nav-number"></span> <span class="nav-text">${parameter=default},${parameter:=default}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameteralt_value-parameteralt_value"><span class="nav-number"></span> <span class="nav-text">${parameter+alt_value}, ${parameter:+alt_value}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parametererr_msg-parametererr_msg"><span class="nav-number"></span> <span class="nav-text">${parameter?err_msg}, ${parameter:?err_msg}</span></a></li></div>
             
 
           </div>
@@ -567,7 +573,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
