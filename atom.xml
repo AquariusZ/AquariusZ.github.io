@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-22T08:24:48.000Z</updated>
+  <updated>2017-04-22T07:47:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,32 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/04/22/hello-world/"/>
-    <id>http://yoursite.com/2017/04/22/hello-world/</id>
-    <published>2017-04-22T08:07:35.000Z</published>
-    <updated>2017-04-22T08:24:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="quick-start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>LDAP详解</title>
@@ -191,14 +165,14 @@
     <link href="http://yoursite.com/2017/01/18/ACL%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/01/18/ACL权限详解/</id>
     <published>2017-01-18T08:29:58.000Z</published>
-    <updated>2017-04-22T08:38:24.000Z</updated>
+    <updated>2017-04-24T01:41:08.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="acl简介"><a href="#ACL简介" class="headerlink" title="ACL简介"></a>ACL简介</h1><p>用户权限管理始终是 Unix 系统管理中最重要的环节。大家对 Linux/Unix 的 UGO 权限管理方式一定不陌生，还有最常用的 chmod 命令。为了实现一些比较复杂的权限管理，往往不得不创建很多的组，并加以详细的记录和区分（很多时候就是管理员的噩梦）。可以针对某一个用户对某一文件指定一个权限，恐怕管理员都期待的功能。比如对某一个特定的文件，用户A可以读取，用户B所在的组可以修改，惟独用户B不可以……。于是就有了IEEE POSIX 1003.1e这个ACL的标准。所谓ACL，就是Access Control List，一个文件/目录的访问控制列表，可以针对任意指定的用户/组分配RWX权限。使系统管理更加灵活。</p>
+    <content type="html"><![CDATA[<h1 id="acl简介"><a href="#ACL简介" class="headerlink" title="ACL简介"></a>ACL简介</h1><p><strong>ACL</strong>，就是<strong>Access Control List</strong>，一个文件/目录的访问控制列表，可以针对任意指定的用户/组分配RWX权限。使系统管理更加灵活。</p>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;acl简介&quot;&gt;&lt;a href=&quot;#ACL简介&quot; class=&quot;headerlink&quot; title=&quot;ACL简介&quot;&gt;&lt;/a&gt;ACL简介&lt;/h1&gt;&lt;p&gt;用户权限管理始终是 Unix 系统管理中最重要的环节。大家对 Linux/Unix 的 UGO 权限管理方式一定不陌
+      &lt;h1 id=&quot;acl简介&quot;&gt;&lt;a href=&quot;#ACL简介&quot; class=&quot;headerlink&quot; title=&quot;ACL简介&quot;&gt;&lt;/a&gt;ACL简介&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;ACL&lt;/strong&gt;，就是&lt;strong&gt;Access Control List&lt;/strong
     
     </summary>
     
