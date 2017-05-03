@@ -165,10 +165,10 @@
     <link href="http://yoursite.com/2017/01/18/ACL%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/01/18/ACL权限详解/</id>
     <published>2017-01-18T08:29:58.000Z</published>
-    <updated>2017-04-24T01:41:08.000Z</updated>
+    <updated>2017-05-03T23:35:41.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="acl简介"><a href="#ACL简介" class="headerlink" title="ACL简介"></a>ACL简介</h1><p><strong>ACL</strong>，就是<strong>Access Control List</strong>，一个文件/目录的访问控制列表，可以针对任意指定的用户/组分配RWX权限。使系统管理更加灵活。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1>]]></content>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>注意即使在不支持ACL的情况下，getfacl仍然能返回一个这样的结果。不过setfacl是不能工作的。</p>]]></content>
     
     <summary type="html">
     
@@ -528,7 +528,7 @@
     <link href="http://yoursite.com/2017/01/10/2017%E5%B9%B4%E7%9A%84%E7%82%B9%E7%82%B9%E6%BB%B4%E6%BB%B4/"/>
     <id>http://yoursite.com/2017/01/10/2017年的点点滴滴/</id>
     <published>2017-01-10T12:37:57.000Z</published>
-    <updated>2017-04-22T07:47:25.000Z</updated>
+    <updated>2017-05-03T23:37:30.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="从你的全世界路过"><a href="#从你的全世界路过" class="headerlink" title="从你的全世界路过"></a>从你的全世界路过</h1><pre><code>2017年1月5日,在高铁上看完,很平凡,很感动.
 </code></pre><h1 id="初恋这件小事"><a href="#初恋这件小事" class="headerlink" title="初恋这件小事"></a>初恋这件小事</h1><pre><code>2017年1月6日,happy ending!!!
@@ -541,6 +541,7 @@
 </code></pre><h1 id="行尸走肉"><a href="#行尸走肉" class="headerlink" title="行尸走肉"></a>行尸走肉</h1><pre><code>2017年2月24日,格伦挂了.
 </code></pre><h1 id="创业怕二件事"><a href="#创业怕二件事" class="headerlink" title="创业怕二件事"></a>创业怕二件事</h1><pre><code>2017年4月6日,一你不懂管理企业,二你害怕竞争,管理企业很简单,只要记住两点,做出用户喜欢的产品,保证开支小于收入.------《黑客与画家》.
 </code></pre><h1 id="情圣"><a href="#情圣" class="headerlink" title="情圣"></a>情圣</h1><pre><code>2017年4月9日,电影挺不错的.
+</code></pre><h1 id="文明之光"><a href="#文明之光" class="headerlink" title="文明之光"></a>文明之光</h1><pre><code>2017年4月20日,争取成为2%的人.
 </code></pre>]]></content>
     
     <summary type="html">
